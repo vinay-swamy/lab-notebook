@@ -87,26 +87,31 @@ Then for the position that corresponds to the variant, calculate the site freque
 - have not implemented the LR warmup or early stopping, will leave that for tomorrow 
 
 ## 10/01/2021(Friday)
-- Model trained( took about ~4.5 hrs on 3 1080's )
+Model trained( took about ~4.5 hrs on 3 1080's )
     - seems to be horribly overfit, the test loss seems to increase with time. 
     - going to try and train on a single GPU to see if thats the problem(I have a hunch )
     - also try adding dropout
     - if that's still failing, might be worthwhile going through the codebase and checking dimensions
     - also need to implement the learning rate decay (learning rate scheduling )
-    
-- Met with Yufeng today
+    - I'm also not totally sure that this is a true graphical neural network, the way the "graph" is constructed between each residue seems a bit honky
+    - I think re-implemnting the model to better follow the paper (via my own interpretation) also seems like it would be a worthwhile idea. 
+        - pulling out the co-evolution calculation into it's own thing might be helpful as well.    
+
+Met with Yufeng today
     - direction for project is likely to use  
     - One possible direction is to try and regress allele frequency in addition to trying to predict 
-        - Though this gives me the idea of a self supervised task (given the MSA + surrounding allele frequencies predict allele frequency )
+        - Though this gives me the idea of a self supervised task (given the MSA + surrounding allele frequencies predict allele frequency of MASK )
     - Think I need to do some more background reading. Look at the REVEL paper
-- I'm also not totally sure that this is a true graphical neural network, the way the "graph" is constructed between each residue seems a bit honky
-- I think re-implemnting the model to better follow the paper (via my own interpretation) also seems like it would be a worthwhile idea. 
-    - pulling out the co-evolution calculation into it's own thing might be helpful as well. 
-    - 
+        - as a whole, I should spend more time reading papers, maybe try to hit at least one per week 
+    - warming up to yufeng as a mentor, he's definitely gives you as much rope as you want, but seems to genuinely care about his students success
 
-- Other notes:
+Other notes:
     - need to review both population genetics, and linear algebra. 
     - Ask bout auditing a linear algebra class next semester, or the summer?
     - potential population genetics courses
         - BIST P8149 Human Population Genetics
         - BIOL W6560 Human Evolutionary Genetics
+Overall thoughts on the week 
+    - Had my first "grad student" amount of time working (8:30-7) on tuesday, wasn't too bad
+    - Not feeling any burnout really, more slowly getting used to working more 
+    - 
