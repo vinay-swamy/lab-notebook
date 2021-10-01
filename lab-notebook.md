@@ -31,9 +31,82 @@ Tasks for next Week
 - run the basic rnn we implemented in colab on the shen lab server, so we can get some practice setting up the env(maybe use docker?)
 - implement a seq2seq model with attention 
 - regenerate the training data and prepare it for use with pytorch 
+
 Reflections for the week 
 - I think I have enough time for research during the day, but need to careful about how I manage my time
 - I have a little more sense about the gMVP project, and I am overall a little more comfortable working with yufeng
 - one thing I have noticed is that the quality of code in the lab is pretty poor, which might not be what I want long term. 
 - Another thing is that there doesn't seem to be a large sense of community in the lab; for the most part people kind of work on their own stuff and dont collaborate as much 
 
+## 09/21/2021 (Tuesday)
+- didn't have time to work on monday, was able to work on tuesday
+- was able to run the `build_feature.py` and `build_tf_feature.py` scripts, but still missing the full training dataset. 
+- have a pretty good sense about the model architecture, but need to read up a little more on attention
+
+## 09/22/2021 (Wednesday )
+- ran my simple RNN on `shannon`
+- read through some blogs about attention. I have a much better understanding of attention and transformers, as well as the progression from the two
+
+## 09/23/2021 (Thursday)
+- Started implementing the EvolEncoder layer in pytorch, its going fairly well but havent testing it out yet 
+- re-wrote `build_tf_feature` to work with pytorch
+
+## Weekly reflection
+- Things generally went better this week, I feel like I was in communication with the lab more 
+- I spoke with yufeng(might have been last week) but it helped clear up a lot of confusion I had about the project
+    - From the lab meetings, its clear yufeng knows what he's talking about, and gives good feedback 
+- Conceptually, I think the project will need to move to something transformer based to stay competitive with the field. I should speak with yufeng about the long term focus of this direction
+
+
+
+## 09/27/2021(Monday)
+- skipped friday cause I was working on the symbols paper
+
+### gMVP co-evolution calculation
+
+re-implementing in pytorch, but wanted to get a better sense of how what exactly it means
+This is from the paper  ![](src/gmvp_co-evolution_calc.png)
+Basically in plain english tho:
+The input is an aligned MSA, with a total  $M$ sequences
+Then for the position that corresponds to the variant, calculate the site frequency 
+
+
+## 09/28/2021(Tuesday)
+- grinded for 9 hours and got evol encoder layers and almost got MHA layer working
+- still not following the linear algebra a ton, I think I need to spend a little time to review the tensor math 
+
+
+## 09/29/2021(Wednesday)
+- worked like 30 min, figured out how to use `torch.einsum` for tensor multiplication
+- git repo for project is now `Shen_lab/pt_gMVP`
+
+## 09/30/2021(Thursday)
+- Finished implementing model in pytorch. Successfully ran a training epoch
+- learned a little bit more on how to properly use cuda
+- multi-gpu training was surprisingly easy to implement
+- have not implemented the LR warmup or early stopping, will leave that for tomorrow 
+
+## 10/01/2021(Friday)
+- Model trained( took about ~4.5 hrs on 3 1080's )
+    - seems to be horribly overfit, the test loss seems to increase with time. 
+    - going to try and train on a single GPU to see if thats the problem(I have a hunch )
+    - also try adding dropout
+    - if that's still failing, might be worthwhile going through the codebase and checking dimensions
+    - also need to implement the learning rate decay (learning rate scheduling )
+    
+- Met with Yufeng today
+    - direction for project is likely to use  
+    - One possible direction is to try and regress allele frequency in addition to trying to predict 
+        - Though this gives me the idea of a self supervised task (given the MSA + surrounding allele frequencies predict allele frequency )
+    - Think I need to do some more background reading. Look at the REVEL paper
+- I'm also not totally sure that this is a true graphical neural network, the way the "graph" is constructed between each residue seems a bit honky
+- I think re-implemnting the model to better follow the paper (via my own interpretation) also seems like it would be a worthwhile idea. 
+    - pulling out the co-evolution calculation into it's own thing might be helpful as well. 
+    - 
+
+- Other notes:
+    - need to review both population genetics, and linear algebra. 
+    - Ask bout auditing a linear algebra class next semester, or the summer?
+    - potential population genetics courses
+        - BIST P8149 Human Population Genetics
+        - BIOL W6560 Human Evolutionary Genetics
