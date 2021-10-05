@@ -114,4 +114,3 @@ Other notes:
 Overall thoughts on the week 
     - Had my first "grad student" amount of time working (8:30-7) on tuesday, wasn't too bad
     - Not feeling any burnout really, more slowly getting used to working more 
-    - 
