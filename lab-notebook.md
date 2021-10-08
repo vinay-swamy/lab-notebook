@@ -114,3 +114,22 @@ Other notes:
 Overall thoughts on the week 
     - Had my first "grad student" amount of time working (8:30-7) on tuesday, wasn't too bad
     - Not feeling any burnout really, more slowly getting used to working more 
+
+
+## 10/08/2021(Friday)
+I dont think daily updates are the way to go, so lets try weekly updates( I'm usually pretty burnt by friday afternoon anyways so I'll have time)
+
+
+### Overall Lab Progress
+- Have a model thats working with decent testing accuracy. 
+- Need to add some more documentation to code base, but still waiting for a little more stability 
+- Wrote more notes in the model repo.
+
+## Overall thoughts on the week 
+- Went pretty well, had to do a bunch of stuff for symbols, but made good progress for lab. 
+- looks like tues/thurs are my heavy lab days,
+- interacting with the lab a little more which is good. 
+- idk man it was a pretty good week 
+
+
+
